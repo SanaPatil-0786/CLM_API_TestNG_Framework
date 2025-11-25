@@ -1,0 +1,463 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="6" passed="0" failed="6" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2025-11-21T11:49:18 IST" name="Default suite" finished-at="2025-11-21T11:49:20 IST" duration-ms="1599">
+    <groups>
+      <group name="cucumber">
+        <method signature="AbstractTestNGCucumberTests.runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:cucumberOptionTestng.TestRunnerTestNG@4fb61f4a]" name="runScenario" class="io.cucumber.testng.AbstractTestNGCucumberTests"/>
+      </group> <!-- cucumber -->
+    </groups>
+    <test started-at="2025-11-21T11:49:18 IST" name="Default test" finished-at="2025-11-21T11:49:20 IST" duration-ms="1599">
+      <class name="cucumberOptionTestng.TestRunnerTestNG">
+        <test-method is-config="true" signature="setUpClass(org.testng.ITestContext)[pri:0, instance:cucumberOptionTestng.TestRunnerTestNG@4fb61f4a]" started-at="2025-11-21T11:49:18 IST" name="setUpClass" finished-at="2025-11-21T11:49:19 IST" duration-ms="920" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[org.testng.TestRunner@1df98368]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUpClass -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:cucumberOptionTestng.TestRunnerTestNG@4fb61f4a]" started-at="2025-11-21T11:49:19 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-11-21T11:49:20 IST" duration-ms="206" status="FAIL">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Verify SaveAgreementDocumentDetails API successful execute and returns a agreement Document ID"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["This feature validates APIs related to Agreement Document screenin CLM"]]>
+              </value>
+            </param>
+          </params>
+          <exception class="io.cucumber.testng.UndefinedStepException">
+            <message>
+              <![CDATA[The step 'prepare request payload for "SaveAgreementDocumentDetails" API' and 3 other step(s) are undefined.
+You can implement these steps using the snippet(s) below:
+
+@Given("prepare request payload for {string} API")
+public void prepare_request_payload_for_api(String string) {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@When("send post request to {string} API")
+public void send_post_request_to_api(String string) {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@Then("check response status is {string}")
+public void check_response_status_is(String string) {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@Then("take {string} key value from response body")
+public void take_key_value_from_response_body(String string) {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[io.cucumber.testng.UndefinedStepException: The step 'prepare request payload for "SaveAgreementDocumentDetails" API' and 3 other step(s) are undefined.
+You can implement these steps using the snippet(s) below:
+
+@Given("prepare request payload for {string} API")
+public void prepare_request_payload_for_api(String string) {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@When("send post request to {string} API")
+public void send_post_request_to_api(String string) {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@Then("check response status is {string}")
+public void check_response_status_is(String string) {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@Then("take {string} key value from response body")
+public void take_key_value_from_response_body(String string) {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+
+at ✽.prepare request payload for "SaveAgreementDocumentDetails" API(file:///C:/Users/sana.patil/eclipse-workspace/CLM_API_FRAMEWORK/src/test/java/features/AgreementDocumentAPI.feature:4)
+]]>
+            </full-stacktrace>
+          </exception> <!-- io.cucumber.testng.UndefinedStepException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:cucumberOptionTestng.TestRunnerTestNG@4fb61f4a]" started-at="2025-11-21T11:49:20 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-11-21T11:49:20 IST" duration-ms="27" status="FAIL">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Verify SaveAttachmentDetails API sucessful execute and generate attachmentID"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["This feature validates APIs related to Agreement Document screenin CLM"]]>
+              </value>
+            </param>
+          </params>
+          <exception class="io.cucumber.testng.UndefinedStepException">
+            <message>
+              <![CDATA[The step 'prepare request payload for "SaveAttachmentDetails" API' and 3 other step(s) are undefined.
+You can implement these steps using the snippet(s) below:
+
+@Given("prepare request payload for {string} API")
+public void prepare_request_payload_for_api(String string) {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@Given("send post request to {string} API")
+public void send_post_request_to_api(String string) {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@Then("check response status is {string}")
+public void check_response_status_is(String string) {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@Then("take {string} key value from response body and check response contain correct contractid, documentid and attachmentname")
+public void take_key_value_from_response_body_and_check_response_contain_correct_contractid_documentid_and_attachmentname(String string) {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[io.cucumber.testng.UndefinedStepException: The step 'prepare request payload for "SaveAttachmentDetails" API' and 3 other step(s) are undefined.
+You can implement these steps using the snippet(s) below:
+
+@Given("prepare request payload for {string} API")
+public void prepare_request_payload_for_api(String string) {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@Given("send post request to {string} API")
+public void send_post_request_to_api(String string) {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@Then("check response status is {string}")
+public void check_response_status_is(String string) {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@Then("take {string} key value from response body and check response contain correct contractid, documentid and attachmentname")
+public void take_key_value_from_response_body_and_check_response_contain_correct_contractid_documentid_and_attachmentname(String string) {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+
+at ✽.prepare request payload for "SaveAttachmentDetails" API(file:///C:/Users/sana.patil/eclipse-workspace/CLM_API_FRAMEWORK/src/test/java/features/AgreementDocumentAPI.feature:10)
+]]>
+            </full-stacktrace>
+          </exception> <!-- io.cucumber.testng.UndefinedStepException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:cucumberOptionTestng.TestRunnerTestNG@4fb61f4a]" started-at="2025-11-21T11:49:20 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-11-21T11:49:20 IST" duration-ms="41" status="FAIL">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Verify that the GetAgreementTypeListDetails API executes successfully and retrieves all documents for the specified document type and contract ID"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["This feature validates APIs related to Agreement Document screenin CLM"]]>
+              </value>
+            </param>
+          </params>
+          <exception class="io.cucumber.testng.UndefinedStepException">
+            <message>
+              <![CDATA[The step 'prepare request payload for "GetAgreementTypeListDetails" API' and 3 other step(s) are undefined.
+You can implement these steps using the snippet(s) below:
+
+@Given("prepare request payload for {string} API")
+public void prepare_request_payload_for_api(String string) {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@When("send get request to {string} API")
+public void send_get_request_to_api(String string) {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@Then("check response status is {string}")
+public void check_response_status_is(String string) {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@Then("check count of document against specific document type and check created document contain in response")
+public void check_count_of_document_against_specific_document_type_and_check_created_document_contain_in_response() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[io.cucumber.testng.UndefinedStepException: The step 'prepare request payload for "GetAgreementTypeListDetails" API' and 3 other step(s) are undefined.
+You can implement these steps using the snippet(s) below:
+
+@Given("prepare request payload for {string} API")
+public void prepare_request_payload_for_api(String string) {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@When("send get request to {string} API")
+public void send_get_request_to_api(String string) {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@Then("check response status is {string}")
+public void check_response_status_is(String string) {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@Then("check count of document against specific document type and check created document contain in response")
+public void check_count_of_document_against_specific_document_type_and_check_created_document_contain_in_response() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+
+at ✽.prepare request payload for "GetAgreementTypeListDetails" API(file:///C:/Users/sana.patil/eclipse-workspace/CLM_API_FRAMEWORK/src/test/java/features/AgreementDocumentAPI.feature:16)
+]]>
+            </full-stacktrace>
+          </exception> <!-- io.cucumber.testng.UndefinedStepException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:cucumberOptionTestng.TestRunnerTestNG@4fb61f4a]" started-at="2025-11-21T11:49:20 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-11-21T11:49:20 IST" duration-ms="18" status="FAIL">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Verify that the GetAgreementDocumentDetails API execute successful and check response contain correct document details"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["This feature validates APIs related to Agreement Document screenin CLM"]]>
+              </value>
+            </param>
+          </params>
+          <exception class="io.cucumber.testng.UndefinedStepException">
+            <message>
+              <![CDATA[The step 'prepare request payload "GetAgreementDocumentDetails" API' and 3 other step(s) are undefined.
+You can implement these steps using the snippet(s) below:
+
+@Given("prepare request payload {string} API")
+public void prepare_request_payload_api(String string) {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@When("send get request to {string} API")
+public void send_get_request_to_api(String string) {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@Then("check response status is {string}")
+public void check_response_status_is(String string) {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@Then("Verify that the response body contains information related to the given document ID")
+public void verify_that_the_response_body_contains_information_related_to_the_given_document_id() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[io.cucumber.testng.UndefinedStepException: The step 'prepare request payload "GetAgreementDocumentDetails" API' and 3 other step(s) are undefined.
+You can implement these steps using the snippet(s) below:
+
+@Given("prepare request payload {string} API")
+public void prepare_request_payload_api(String string) {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@When("send get request to {string} API")
+public void send_get_request_to_api(String string) {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@Then("check response status is {string}")
+public void check_response_status_is(String string) {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@Then("Verify that the response body contains information related to the given document ID")
+public void verify_that_the_response_body_contains_information_related_to_the_given_document_id() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+
+at ✽.prepare request payload "GetAgreementDocumentDetails" API(file:///C:/Users/sana.patil/eclipse-workspace/CLM_API_FRAMEWORK/src/test/java/features/AgreementDocumentAPI.feature:22)
+]]>
+            </full-stacktrace>
+          </exception> <!-- io.cucumber.testng.UndefinedStepException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:cucumberOptionTestng.TestRunnerTestNG@4fb61f4a]" started-at="2025-11-21T11:49:20 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-11-21T11:49:20 IST" duration-ms="17" status="FAIL">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Verify that the GetAttachmentDetails API executes successful and generate correct attachment details"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["This feature validates APIs related to Agreement Document screenin CLM"]]>
+              </value>
+            </param>
+          </params>
+          <exception class="io.cucumber.testng.UndefinedStepException">
+            <message>
+              <![CDATA[The step 'prepare request payload for "GetAttachmentDetails" API' and 3 other step(s) are undefined.
+You can implement these steps using the snippet(s) below:
+
+@Given("prepare request payload for {string} API")
+public void prepare_request_payload_for_api(String string) {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@When("send get request to {string} API")
+public void send_get_request_to_api(String string) {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@Then("check response status is {string}")
+public void check_response_status_is(String string) {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@Then("check total attachment count against specific documentid and check attachment details")
+public void check_total_attachment_count_against_specific_documentid_and_check_attachment_details() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[io.cucumber.testng.UndefinedStepException: The step 'prepare request payload for "GetAttachmentDetails" API' and 3 other step(s) are undefined.
+You can implement these steps using the snippet(s) below:
+
+@Given("prepare request payload for {string} API")
+public void prepare_request_payload_for_api(String string) {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@When("send get request to {string} API")
+public void send_get_request_to_api(String string) {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@Then("check response status is {string}")
+public void check_response_status_is(String string) {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@Then("check total attachment count against specific documentid and check attachment details")
+public void check_total_attachment_count_against_specific_documentid_and_check_attachment_details() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+
+at ✽.prepare request payload for "GetAttachmentDetails" API(file:///C:/Users/sana.patil/eclipse-workspace/CLM_API_FRAMEWORK/src/test/java/features/AgreementDocumentAPI.feature:28)
+]]>
+            </full-stacktrace>
+          </exception> <!-- io.cucumber.testng.UndefinedStepException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:cucumberOptionTestng.TestRunnerTestNG@4fb61f4a]" started-at="2025-11-21T11:49:20 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-11-21T11:49:20 IST" duration-ms="18" status="FAIL">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Verify that the SaveAgreementDocumentDetails update API execute successful and generate same documentid"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["This feature validates APIs related to Agreement Document screenin CLM"]]>
+              </value>
+            </param>
+          </params>
+          <exception class="io.cucumber.testng.UndefinedStepException">
+            <message>
+              <![CDATA[The step 'prepare request payload for update "SaveAgreementDocumentDetails API' and 3 other step(s) are undefined.
+You can implement these steps using the snippet(s) below:
+
+@Given("prepare request payload for update \"SaveAgreementDocumentDetails API")
+public void prepare_request_payload_for_update_save_agreement_document_details_api() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@When("send post request for SaveAgreementDocumentDetails update API")
+public void send_post_request_for_save_agreement_document_details_update_api() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@Then("check response status is {string}")
+public void check_response_status_is(String string) {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@Then("chech same documentis contain api response")
+public void chech_same_documentis_contain_api_response() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[io.cucumber.testng.UndefinedStepException: The step 'prepare request payload for update "SaveAgreementDocumentDetails API' and 3 other step(s) are undefined.
+You can implement these steps using the snippet(s) below:
+
+@Given("prepare request payload for update \"SaveAgreementDocumentDetails API")
+public void prepare_request_payload_for_update_save_agreement_document_details_api() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@When("send post request for SaveAgreementDocumentDetails update API")
+public void send_post_request_for_save_agreement_document_details_update_api() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@Then("check response status is {string}")
+public void check_response_status_is(String string) {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@Then("chech same documentis contain api response")
+public void chech_same_documentis_contain_api_response() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+
+at ✽.prepare request payload for update "SaveAgreementDocumentDetails API(file:///C:/Users/sana.patil/eclipse-workspace/CLM_API_FRAMEWORK/src/test/java/features/AgreementDocumentAPI.feature:34)
+]]>
+            </full-stacktrace>
+          </exception> <!-- io.cucumber.testng.UndefinedStepException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method is-config="true" signature="tearDownClass()[pri:0, instance:cucumberOptionTestng.TestRunnerTestNG@4fb61f4a]" started-at="2025-11-21T11:49:20 IST" name="tearDownClass" finished-at="2025-11-21T11:49:20 IST" duration-ms="229" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDownClass -->
+      </class> <!-- cucumberOptionTestng.TestRunnerTestNG -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>
