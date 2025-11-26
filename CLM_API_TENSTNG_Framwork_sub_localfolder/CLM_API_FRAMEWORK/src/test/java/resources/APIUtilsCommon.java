@@ -31,14 +31,16 @@ public class APIUtilsCommon {
 				baseUri(Base_Url).
 				header("Content-Type", CONTENT_TYPE).
 				header("Authorization", "Bearer " + ContractHeaderStepDefination.token);
+				//header("Authorization", "Bearer " + "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6IjIiLCJyb2xlIjoiIiwibmJmIjoxNzYzNDY5MTA0LCJleHAiOjE3NjQwNzM5MDQsImlhdCI6MTc2MzQ2OTEwNH0.APc-pcHn8ORTKwFVCXFC8zA5iZIkvNDpMPJEPDG0KQw");
 	}
 
 	// common method for GET API request
 
 	public static RequestSpecification getPayloadbody() throws IOException {
-		return given().log().all()
+		return given()
 				.baseUri(Base_Url).
-				header("Authorization", "Bearer " + ContractHeaderStepDefination.token);			
+				//header("Authorization", "Bearer " + "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6IjIiLCJyb2xlIjoiIiwibmJmIjoxNzYzNDY5MTA0LCJleHAiOjE3NjQwNzM5MDQsImlhdCI6MTc2MzQ2OTEwNH0.APc-pcHn8ORTKwFVCXFC8zA5iZIkvNDpMPJEPDG0KQw");
+			header("Authorization", "Bearer " + ContractHeaderStepDefination.token);			
 	}
 
 	// verify post request body data available in response of get api or not

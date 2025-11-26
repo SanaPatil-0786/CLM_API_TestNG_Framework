@@ -1,5 +1,7 @@
 package stepDefinationCLMAPI;
 
+import static io.restassured.RestAssured.given;
+
 import java.io.IOException;
 import java.util.List;
 import java.util.Map;
@@ -25,7 +27,7 @@ public class AgreementDocumentStepDefination {
 	public static int agreementId;
 	public static int attachmentId;
 
-	@Given("prepare request payload {string} API")
+	@Given("prepare request payload for {string} API")
 	public void prepare_request_payload_api(String resources) throws IOException {
 
 		res = APIResources.valueOf(resources);
@@ -33,17 +35,13 @@ public class AgreementDocumentStepDefination {
 		if ("SaveAgreementDocumentDetails".equalsIgnoreCase(res.name().trim())) {
 			req = APIUtilsCommon.postHeaderRequest().body(AgreementDocument.createAgreement());
 		} else if ("SaveAttachmentDetails".equalsIgnoreCase(res.name().trim())) {
-			req = APIUtilsCommon.getPayloadbody().header("Content-Type", "multipart/form-data")
-					.spec(AgreementDocument.attachmentBody());
+			req = given().spec(AgreementDocument.attachmentBody());
+			//.header("Content-Type", "multipart/form-data")   //RestAssured will automatically set the correct header with boundary.
 		} else if ("GetAgreementTypeListDetails".equalsIgnoreCase(res.name().trim())) {
 			req = AgreementDocument.getlistrequest();
-		}
-		else if ("GetAgreementDocumentDetails".equalsIgnoreCase(res.name().trim()))
-		{
+		} else if ("GetAgreementDocumentDetails".equalsIgnoreCase(res.name().trim())) {
 			req = AgreementDocument.getDocumentDetailRequest();
-		}
-		else if ("GetAttachmentDetails".equalsIgnoreCase(res.name().trim()))
-		{
+		} else if ("GetAttachmentDetails".equalsIgnoreCase(res.name().trim())) {
 			req = AgreementDocument.getattachmentrequest();
 		}
 
@@ -57,14 +55,18 @@ public class AgreementDocumentStepDefination {
 			resp = req.when().post(res.getResources());
 		} else if ("SaveAttachmentDetails".equalsIgnoreCase(res.name().trim())) {
 			resp = req.when().post(res.getResources());
+			//resp = req.when().post("/api/Attachment/SaveAttachmentDetails");
 		}
 	}
 
 	@Then("check response status is {string}")
-	public void check_response_status_is(String statuscode) {
+	public void check_response_status_is(String statuscode)
+	{
 		// common for all
 		Integer code = Integer.parseInt(statuscode);
-		resp.then().assertThat().statusCode(code);
+		resp.then().log().all().assertThat().statusCode(code);
+		System.out.println("status code of response :"+ resp.getStatusCode());
+		System.out.println("response of API : "+resp.getBody().asString());
 	}
 
 	@Then("take {string} key value from response body")
@@ -73,11 +75,11 @@ public class AgreementDocumentStepDefination {
 		String respbody = resp.asString();
 		JsonPath json = new JsonPath(respbody);
 		agreementId = json.getInt(data);
+		System.out.println("save agreementdocumentid : " +agreementId );
 	}
 
 	@Then("take {string} key value from response body and check response contain correct contractid, documentid")
-	public void take_key_value_from_response_body_and_check_response_contain_correct_contractid_documentid(
-			String attachmentid) {
+	public void take_key_value_from_response_body_and_check_response_contain_correct_contractid_documentid(String attachmentid) {
 		// SaveAttachmentDetails
 		String body = resp.asString();
 		JsonPath jsonbody = new JsonPath(body);
@@ -87,6 +89,7 @@ public class AgreementDocumentStepDefination {
 		String actualattachmentname = jsonbody.getString("data[0].attachmentname");
 		Assert.assertEquals(actualcontractid, ContractHeaderStepDefination.contractId);
 		Assert.assertEquals(actualdocumentid, agreementId);
+		System.out.println(" SaveAttachmentDetails API response is :   "+ actualcontractid+ "\n "+ actualdocumentid+ "\n " +  actualattachmentname);
 	}
 
 	@When("send get request to {string} API")
@@ -98,15 +101,13 @@ public class AgreementDocumentStepDefination {
 		}
 
 		// GetAgreementDocumentDetails
-		else if ("GetAgreementDocumentDetails".equalsIgnoreCase(res.name().trim()))
-		{
+		else if ("GetAgreementDocumentDetails".equalsIgnoreCase(res.name().trim())) {
 			resp = req.when().get(res.getResources());
 		}
-		
+
 		// GetAttachmentDetails
-		else if ("GetAttachmentDetails".equalsIgnoreCase(res.name().trim()))
-		{
-			 resp= req.when().get(res.getResources());
+		else if ("GetAttachmentDetails".equalsIgnoreCase(res.name().trim())) {
+			resp = req.when().get(res.getResources());
 		}
 
 	}
@@ -142,20 +143,19 @@ public class AgreementDocumentStepDefination {
 
 	@Then("check total attachment count against specific documentid")
 	public void check_total_attachment_count_against_specific_documentid() {
-     //GetAttachmentDetails
+		// GetAttachmentDetails
 		String body = resp.then().log().all().extract().response().asString();
 		JsonPath jsonobj = new JsonPath(body);
-		int size  = jsonobj.getList("data.attachmenttDto").size();
-		System.out.println("Number of Attchment inside:  " +agreementId + "agreementid and its count is :" + size);
-		
+		int size = jsonobj.getList("data.attachmenttDto").size();
+		System.out.println("Number of Attchment inside:  " + agreementId + "agreementid and its count is :" + size);
+
 	}
 
 	@Given("prepare request payload for update {string} API")
 	public void prepare_request_payload_for_update_API(String resources) throws IOException {
 		// update "SaveAgreementDocumentDetails API
 		res = APIResources.valueOf(resources);
-		if("SaveAgreementDocumentDetails".equalsIgnoreCase(res.name().trim()))
-		{
+		if ("SaveAgreementDocumentDetails".equalsIgnoreCase(res.name().trim())) {
 			req = APIUtilsCommon.postHeaderRequest().body(AgreementDocument.updateAgreementDocumentBody());
 		}
 	}
@@ -163,7 +163,7 @@ public class AgreementDocumentStepDefination {
 	@When("send post request for SaveAgreementDocumentDetails update API")
 	public void send_post_request_for_save_agreement_document_details_update_api() {
 		// update "SaveAgreementDocumentDetails API
-		
+
 		resp = req.when().post(res.getResources());
 
 	}
@@ -171,11 +171,11 @@ public class AgreementDocumentStepDefination {
 	@Then("check same documentis contain api response")
 	public void check_same_documentis_contain_api_response() {
 		// update "SaveAgreementDocumentDetails API
-    String responsebody = resp.then().log().all().extract().response().asString();
-    JsonPath json = new JsonPath(responsebody);
-    int agreementid = json.getInt("data");
-    Assert.assertEquals(agreementid, agreementId);
-    
+		String responsebody = resp.then().log().all().extract().response().asString();
+		JsonPath json = new JsonPath(responsebody);
+		int agreementid = json.getInt("data");
+		Assert.assertEquals(agreementid, agreementId);
+
 	}
 
 }

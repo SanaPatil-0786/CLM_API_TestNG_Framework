@@ -7,7 +7,7 @@ public class SaveAgreementDocumentDetails {
 	private int documentTypeId;
 	private String documentTitle;
 	private int stageId;
-	private float documentRevision;
+	private String documentRevision;
 	private String comment;
 	private int triggeredbyId;
 	
@@ -41,10 +41,10 @@ public class SaveAgreementDocumentDetails {
 	public void setStageId(int stageId) {
 		this.stageId = stageId;
 	}
-	public float getDocumentRevision() {
+	public String getDocumentRevision() {
 		return documentRevision;
 	}
-	public void setDocumentRevision(float documentRevision) {
+	public void setDocumentRevision(String documentRevision) {
 		this.documentRevision = documentRevision;
 	}
 	public String getComment() {
