@@ -18,7 +18,6 @@ import io.restassured.specification.ResponseSpecification;
 //import resources.APIResources;
 import resources.*;
 import testdata.AgreementDocument;
-
 public class AgreementDocumentStepDefination {
 
 	public static APIResources res;
@@ -26,6 +25,8 @@ public class AgreementDocumentStepDefination {
 	public static Response resp;
 	public static int agreementId;
 	public static int attachmentId;
+
+
 
 	@Given("prepare request payload for {string} API")
 	public void prepare_request_payload_api(String resources) throws IOException {
@@ -36,7 +37,8 @@ public class AgreementDocumentStepDefination {
 			req = APIUtilsCommon.postHeaderRequest().body(AgreementDocument.createAgreement());
 		} else if ("SaveAttachmentDetails".equalsIgnoreCase(res.name().trim())) {
 			req = given().spec(AgreementDocument.attachmentBody());
-			//.header("Content-Type", "multipart/form-data")   //RestAssured will automatically set the correct header with boundary.
+			// .header("Content-Type", "multipart/form-data") //RestAssured will
+			// automatically set the correct header with boundary.
 		} else if ("GetAgreementTypeListDetails".equalsIgnoreCase(res.name().trim())) {
 			req = AgreementDocument.getlistrequest();
 		} else if ("GetAgreementDocumentDetails".equalsIgnoreCase(res.name().trim())) {
@@ -55,18 +57,17 @@ public class AgreementDocumentStepDefination {
 			resp = req.when().post(res.getResources());
 		} else if ("SaveAttachmentDetails".equalsIgnoreCase(res.name().trim())) {
 			resp = req.when().post(res.getResources());
-			//resp = req.when().post("/api/Attachment/SaveAttachmentDetails");
+			// resp = req.when().post("/api/Attachment/SaveAttachmentDetails");
 		}
 	}
 
 	@Then("check response status is {string}")
-	public void check_response_status_is(String statuscode)
-	{
+	public void check_response_status_is(String statuscode) {
 		// common for all
 		Integer code = Integer.parseInt(statuscode);
 		resp.then().log().all().assertThat().statusCode(code);
-		System.out.println("status code of response :"+ resp.getStatusCode());
-		System.out.println("response of API : "+resp.getBody().asString());
+		System.out.println("status code of response :" + resp.getStatusCode());
+		System.out.println("response of API : " + resp.getBody().asString());
 	}
 
 	@Then("take {string} key value from response body")
@@ -75,11 +76,12 @@ public class AgreementDocumentStepDefination {
 		String respbody = resp.asString();
 		JsonPath json = new JsonPath(respbody);
 		agreementId = json.getInt(data);
-		System.out.println("save agreementdocumentid : " +agreementId );
+		System.out.println("save agreementdocumentid : " + agreementId);
 	}
 
 	@Then("take {string} key value from response body and check response contain correct contractid, documentid")
-	public void take_key_value_from_response_body_and_check_response_contain_correct_contractid_documentid(String attachmentid) {
+	public void take_key_value_from_response_body_and_check_response_contain_correct_contractid_documentid(
+			String attachmentid) {
 		// SaveAttachmentDetails
 		String body = resp.asString();
 		JsonPath jsonbody = new JsonPath(body);
@@ -89,7 +91,8 @@ public class AgreementDocumentStepDefination {
 		String actualattachmentname = jsonbody.getString("data[0].attachmentname");
 		Assert.assertEquals(actualcontractid, ContractHeaderStepDefination.contractId);
 		Assert.assertEquals(actualdocumentid, agreementId);
-		System.out.println(" SaveAttachmentDetails API response is :   "+ actualcontractid+ "\n "+ actualdocumentid+ "\n " +  actualattachmentname);
+		System.out.println(" SaveAttachmentDetails API response is :   " + actualcontractid + "\n " + actualdocumentid
+				+ "\n " + actualattachmentname);
 	}
 
 	@When("send get request to {string} API")
