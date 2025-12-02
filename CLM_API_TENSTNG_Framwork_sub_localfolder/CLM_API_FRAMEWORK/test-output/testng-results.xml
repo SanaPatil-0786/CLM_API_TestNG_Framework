@@ -2,170 +2,170 @@
 <testng-results ignored="0" total="9" passed="9" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2025-11-27T17:59:38 IST" name="Default suite" finished-at="2025-11-27T17:59:54 IST" duration-ms="16190">
+  <suite started-at="2025-12-02T17:15:04 IST" name="Default suite" finished-at="2025-12-02T17:15:05 IST" duration-ms="1284">
     <groups>
       <group name="cucumber">
         <method signature="AbstractTestNGCucumberTests.runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:cucumberOptionTestng.TestRunnerTestNG@7c6908d7]" name="runScenario" class="io.cucumber.testng.AbstractTestNGCucumberTests"/>
       </group> <!-- cucumber -->
     </groups>
-    <test started-at="2025-11-27T17:59:38 IST" name="Default test" finished-at="2025-11-27T17:59:54 IST" duration-ms="16190">
+    <test started-at="2025-12-02T17:15:04 IST" name="Default test" finished-at="2025-12-02T17:15:05 IST" duration-ms="1284">
       <class name="cucumberOptionTestng.TestRunnerTestNG">
-        <test-method is-config="true" signature="setUpClass(org.testng.ITestContext)[pri:0, instance:cucumberOptionTestng.TestRunnerTestNG@7c6908d7]" started-at="2025-11-27T17:59:38 IST" name="setUpClass" finished-at="2025-11-27T17:59:38 IST" duration-ms="725" status="PASS">
+        <test-method is-config="true" signature="setUpClass(org.testng.ITestContext)[pri:0, instance:cucumberOptionTestng.TestRunnerTestNG@7c6908d7]" started-at="2025-12-02T17:15:04 IST" name="setUpClass" finished-at="2025-12-02T17:15:05 IST" duration-ms="764" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[org.testng.TestRunner@350d26f3]]>
+                <![CDATA[org.testng.TestRunner@61e3a1fd]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUpClass -->
-        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:cucumberOptionTestng.TestRunnerTestNG@7c6908d7]" started-at="2025-11-27T17:59:38 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-11-27T17:59:49 IST" duration-ms="10654" status="PASS">
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:cucumberOptionTestng.TestRunnerTestNG@7c6908d7]" started-at="2025-12-02T17:15:05 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-12-02T17:15:05 IST" duration-ms="170" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA["verify GetTokenAPI and take generated token"]]>
+                <![CDATA["Verify that the SaveClientInformation API successfully creates a new client"]]>
               </value>
             </param>
             <param index="1">
               <value>
-                <![CDATA["verify contract header infomation api of CLM project"]]>
+                <![CDATA["Verify API colletion of Client statakeholder screen of CLM"]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runScenario -->
-        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:cucumberOptionTestng.TestRunnerTestNG@7c6908d7]" started-at="2025-11-27T17:59:49 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-11-27T17:59:51 IST" duration-ms="1736" status="PASS">
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:cucumberOptionTestng.TestRunnerTestNG@7c6908d7]" started-at="2025-12-02T17:15:05 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-12-02T17:15:05 IST" duration-ms="14" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA["verify SaveHeaderInformation and take data key value"]]>
+                <![CDATA["Verify add address api against new created client"]]>
               </value>
             </param>
             <param index="1">
               <value>
-                <![CDATA["verify contract header infomation api of CLM project"]]>
+                <![CDATA["Verify API colletion of Client statakeholder screen of CLM"]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runScenario -->
-        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:cucumberOptionTestng.TestRunnerTestNG@7c6908d7]" started-at="2025-11-27T17:59:51 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-11-27T17:59:51 IST" duration-ms="398" status="PASS">
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:cucumberOptionTestng.TestRunnerTestNG@7c6908d7]" started-at="2025-12-02T17:15:05 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-12-02T17:15:05 IST" duration-ms="17" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA["verify taken contractID from saveheader API and GetHeaderInformation API is contain same details of post headerinformaiton API"]]>
+                <![CDATA["Verify added saveclientcontactinformation api against new client"]]>
               </value>
             </param>
             <param index="1">
               <value>
-                <![CDATA["verify contract header infomation api of CLM project"]]>
+                <![CDATA["Verify API colletion of Client statakeholder screen of CLM"]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runScenario -->
-        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:cucumberOptionTestng.TestRunnerTestNG@7c6908d7]" started-at="2025-11-27T17:59:51 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-11-27T17:59:52 IST" duration-ms="298" status="PASS">
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:cucumberOptionTestng.TestRunnerTestNG@7c6908d7]" started-at="2025-12-02T17:15:05 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-12-02T17:15:05 IST" duration-ms="9" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA["Verify SaveAgreementDocumentDetails API successful execute and returns a agreement Document ID"]]>
+                <![CDATA["Verify DeleteClientAddress api and check count of total address"]]>
               </value>
             </param>
             <param index="1">
               <value>
-                <![CDATA["This feature validates APIs related to Agreement Document screenin CLM"]]>
+                <![CDATA["Verify API colletion of Client statakeholder screen of CLM"]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runScenario -->
-        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:cucumberOptionTestng.TestRunnerTestNG@7c6908d7]" started-at="2025-11-27T17:59:52 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-11-27T17:59:53 IST" duration-ms="1249" status="PASS">
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:cucumberOptionTestng.TestRunnerTestNG@7c6908d7]" started-at="2025-12-02T17:15:05 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-12-02T17:15:05 IST" duration-ms="14" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA["Verify SaveAttachmentDetails API sucessful execute and generate attachmentID"]]>
+                <![CDATA["Verify DeleteClientContactInformation api and check count of total contact"]]>
               </value>
             </param>
             <param index="1">
               <value>
-                <![CDATA["This feature validates APIs related to Agreement Document screenin CLM"]]>
+                <![CDATA["Verify API colletion of Client statakeholder screen of CLM"]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runScenario -->
-        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:cucumberOptionTestng.TestRunnerTestNG@7c6908d7]" started-at="2025-11-27T17:59:53 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-11-27T17:59:53 IST" duration-ms="182" status="PASS">
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:cucumberOptionTestng.TestRunnerTestNG@7c6908d7]" started-at="2025-12-02T17:15:05 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-12-02T17:15:05 IST" duration-ms="9" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA["Verify that the GetAgreementTypeListDetails API executes successfully and retrieves all documents for the specified document type and contract ID"]]>
+                <![CDATA["Verify newly added client is display in list of all client"]]>
               </value>
             </param>
             <param index="1">
               <value>
-                <![CDATA["This feature validates APIs related to Agreement Document screenin CLM"]]>
+                <![CDATA["Verify API colletion of Client statakeholder screen of CLM"]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runScenario -->
-        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:cucumberOptionTestng.TestRunnerTestNG@7c6908d7]" started-at="2025-11-27T17:59:53 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-11-27T17:59:53 IST" duration-ms="180" status="PASS">
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:cucumberOptionTestng.TestRunnerTestNG@7c6908d7]" started-at="2025-12-02T17:15:05 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-12-02T17:15:05 IST" duration-ms="13" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA["Verify that the GetAgreementDocumentDetails API execute successful and check response contain correct document details"]]>
+                <![CDATA["Verify GetClientContactWithAddressList API contain all addressand contact list which is created inside new client"]]>
               </value>
             </param>
             <param index="1">
               <value>
-                <![CDATA["This feature validates APIs related to Agreement Document screenin CLM"]]>
+                <![CDATA["Verify API colletion of Client statakeholder screen of CLM"]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runScenario -->
-        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:cucumberOptionTestng.TestRunnerTestNG@7c6908d7]" started-at="2025-11-27T17:59:53 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-11-27T17:59:53 IST" duration-ms="78" status="PASS">
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:cucumberOptionTestng.TestRunnerTestNG@7c6908d7]" started-at="2025-12-02T17:15:05 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-12-02T17:15:05 IST" duration-ms="8" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA["Verify that the GetAttachmentDetails API executes successful and generate correct attachment details"]]>
+                <![CDATA["verify searched contact person details are correct display"]]>
               </value>
             </param>
             <param index="1">
               <value>
-                <![CDATA["This feature validates APIs related to Agreement Document screenin CLM"]]>
+                <![CDATA["Verify API colletion of Client statakeholder screen of CLM"]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runScenario -->
-        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:cucumberOptionTestng.TestRunnerTestNG@7c6908d7]" started-at="2025-11-27T17:59:53 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-11-27T17:59:54 IST" duration-ms="434" status="PASS">
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:cucumberOptionTestng.TestRunnerTestNG@7c6908d7]" started-at="2025-12-02T17:15:05 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-12-02T17:15:05 IST" duration-ms="10" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA["Verify that the SaveAgreementDocumentDetails update API execute successful and generate same documentid"]]>
+                <![CDATA["Verify SaveStakeHoldersClientDetails API is correctly created"]]>
               </value>
             </param>
             <param index="1">
               <value>
-                <![CDATA["This feature validates APIs related to Agreement Document screenin CLM"]]>
+                <![CDATA["Verify API colletion of Client statakeholder screen of CLM"]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runScenario -->
-        <test-method is-config="true" signature="tearDownClass()[pri:0, instance:cucumberOptionTestng.TestRunnerTestNG@7c6908d7]" started-at="2025-11-27T17:59:54 IST" name="tearDownClass" finished-at="2025-11-27T17:59:54 IST" duration-ms="132" status="PASS">
+        <test-method is-config="true" signature="tearDownClass()[pri:0, instance:cucumberOptionTestng.TestRunnerTestNG@7c6908d7]" started-at="2025-12-02T17:15:05 IST" name="tearDownClass" finished-at="2025-12-02T17:15:05 IST" duration-ms="147" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDownClass -->
