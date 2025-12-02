@@ -8,7 +8,16 @@ public enum APIResources {
 	SaveAttachmentDetails("/api/Attachment/SaveAttachmentDetails"),
 	GetAgreementTypeListDetails("/api/AgreementDoc/GetAgreementTypeListDeatils"),
 	GetAgreementDocumentDetails("/api/AgreementDoc/GetAgreementDocumentDetails"),
-	GetAttachmentDetails("/api/Attachment/GetAttachmentDetails");
+	GetAttachmentDetails("/api/Attachment/GetAttachmentDetails"),
+	SaveClientInformation("/api/Client/SaveClientInformation"),
+	SaveClientAddress("/api/Client/SaveClientAddress"),
+	SaveClientContactInformation("/api/Client/SaveClientContactInformation"),
+	DeleteClientAddress("/api/Client/DeleteClientAddress"),
+	DeleteClientContactInformation("/api/Client/DeleteClientContactInformation"),
+	GetAllClientList("/api/StakeHolders/GetAllClientList"),
+	GetClientContactWithAddressList("/api/StakeHolders/GetClientContactWithAddressList"),
+	GetKeyStakeHolderInfo("/api/StakeHolders/GetKeyStakeHolderInfo"),
+	SaveStakeHoldersClientDetails("/api/StakeHolders/SaveStakeHoldersClientDetails");
 	
 	
 	private String resources;
