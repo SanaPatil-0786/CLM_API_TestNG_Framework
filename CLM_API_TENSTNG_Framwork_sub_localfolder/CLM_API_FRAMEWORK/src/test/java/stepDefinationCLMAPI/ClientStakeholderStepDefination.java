@@ -253,8 +253,8 @@ public class ClientStakeholderStepDefination {
 
 		Assert.assertEquals(actualclientaddressid, clientaddressid);
 		Assert.assertEquals(actualclientsignauthoid, clientcontactid2);
-		Assert.assertEquals(actualcontractid, clientcontactid);
+		Assert.assertEquals(actualcontractid, ContractHeaderStepDefination.contractId);
 		Assert.assertEquals(actualsaveclientid, savestakeholderid);
-		Assert.assertEquals(actualcontactid, ContractHeaderStepDefination.contractId);
+		Assert.assertEquals(actualcontactid, clientcontactid);
 	}
 }
