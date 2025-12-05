@@ -49,23 +49,21 @@ When a GET request is send to "GetClientContactWithAddressList" API
 Then the response status code should "200"
 And check count contacts and address list is same in response body
 
-@skip
-
-Scenario: verify searched contact person details are correct display
-Given a request payload is prepared for the "GetKeyStakeHolderInfo" API
-When a GET request is send to "GetKeyStakeHolderInfo" API
-Then the response status code should "200"
-And check contact details are correct for the provided contact ID
-
-@skip
+@run
 Scenario: Verify SaveStakeHoldersClientDetails API is correctly created 
 Given a request payload is prepared for the "SaveStakeHoldersClientDetails" API
 When a POST request is sent to the "SaveStakeHoldersClientDetails" API
 Then the response status code should "200"
 And check message correctly display and take data keyvalue
 
-#have to change sequence first should SaveStakeHoldersClientDetails then GetKeyStakeHolderInfo
-#facing api issue to save client information so currently on hold 
+@run
+Scenario: verify searched contact person details are correct display
+Given a request payload is prepared for the "GetClientStakeHolderDetails" API
+When a GET request is send to "GetClientStakeHolderDetails" API
+Then the response status code should "200"
+And check contact details are correct for the provided contact ID
+
+
 
 
  

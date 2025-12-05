@@ -14,7 +14,7 @@ import io.cucumber.testng.CucumberOptions;
 				"json:target/cucumber.json"
 				},
         tags ="@run",
-        dryRun= true
+        dryRun= false
 )
 public class TestRunnerTestNG extends AbstractTestNGCucumberTests {
 

@@ -24,6 +24,8 @@ public class ClientStakeholderStepDefination {
 	public static String clientcode;
 	public static int clientaddressid;
 	public static int clientcontactid;
+	public static int clientcontactid2;
+	public static int savestakeholderid;
 
 	@Given("a request payload is prepared for the {string} API")
 	public void a_request_payload_is_prepared_for_the_api(String resources) throws IOException {
@@ -40,12 +42,17 @@ public class ClientStakeholderStepDefination {
 			req = APIUtilsCommon.getPayloadbody().log().all().queryParam("clientContactInformationId", clientcontactid);
 		} else if ("GetAllClientList".equalsIgnoreCase(res.name().trim())) {
 			req = APIUtilsCommon.getPayloadbody().log().all();
-		}
-		else if ("GetClientContactWithAddressList".equalsIgnoreCase(res.name().trim())) {
+		} else if ("GetClientContactWithAddressList".equalsIgnoreCase(res.name().trim())) {
 			req = APIUtilsCommon.getPayloadbody().log().all().queryParam("ClientId", clientid);
+		} else if ("GetKeyStakeHolderInfo".equalsIgnoreCase(res.name().trim())) {
+			req = APIUtilsCommon.getPayloadbody().log().all().queryParam("ContactId",
+					ContractHeaderStepDefination.contractId);
 		}
-		else if ("GetKeyStakeHolderInfo".equalsIgnoreCase(res.name().trim())) {
-			req = APIUtilsCommon.getPayloadbody().log().all().queryParam("ContactId", ContractHeaderStepDefination.contractId);
+		else if("SaveStakeHoldersClientDetails".equalsIgnoreCase(res.name().trim())) {
+			req = APIUtilsCommon.postHeaderRequest().body(ClientStakeholder.saveClientStakeholder());
+		}
+		else if ("GetClientStakeHolderDetails".equalsIgnoreCase(res.name().trim())) {
+			req = APIUtilsCommon.getPayloadbody().log().all().queryParam("contractId", ContractHeaderStepDefination.contractId);
 		}
 	}
 
@@ -55,10 +62,14 @@ public class ClientStakeholderStepDefination {
 		if ("SaveClientInformation".equalsIgnoreCase(res.name().trim())) {
 			resp = req.when().post(res.getResources());
 		}
+		else if("SaveStakeHoldersClientDetails".equalsIgnoreCase(res.name().trim())) {
+			resp = req.when().post(res.getResources());
+		}
 	}
 
 	@Then("the response status code should {string}")
 	public void the_response_status_code_should(String statuscode) {
+		resp.then().log().all();
 		int code = resp.getStatusCode();
 		int expectedstatus = Integer.valueOf(statuscode);
 		Assert.assertEquals(code, expectedstatus);
@@ -66,13 +77,14 @@ public class ClientStakeholderStepDefination {
 
 	@Then("take {string} and {string} keyvalue from response body")
 	public void take_and_keyvalue_from_response_body(String primaryKey, String newclientcode) {
-		String resbody = resp.getBody().asString();
+		String resbody = resp.asString();
 		JsonPath json = new JsonPath(resbody);
-		clientid = json.getInt("data." + primaryKey);
-		clientcode = json.getString("data." + newclientcode);
+		// data is an array; take the first object
+		clientid = json.getInt("data[0]." + primaryKey); // e.g., data[0].primaryKey
+		String clientcode = json.getString("data[0]." + newclientcode); // e.g., data[0].newclientcode
 		System.out.println("new client added and its clientID  is: " + clientid);
 		System.out.println("client code for new client : " + clientcode);
-		System.out.println("after craete client then dispalyed message:  " + json.getString("message"));
+		System.out.println("after create client then dispalyed message:  " + json.getString("message"));
 	}
 
 	@When("a POST request is send to {string} API and add {string} address aginst new created client")
@@ -92,6 +104,7 @@ public class ClientStakeholderStepDefination {
 	@Then("check total count of address inside {string} array object should {string}")
 	public void check_total_count_of_address_inside_array_object_should(String key, String count1) {
 		// SaveClientAddress
+		// resp.then().log().all();
 		String body = resp.asString();
 		JsonPath json = new JsonPath(body);
 		clientaddressid = json.getInt("data.clientAddressListDtoList[0].clientAddressId");
@@ -109,21 +122,31 @@ public class ClientStakeholderStepDefination {
 		// SaveClientContactInformation
 		res = APIResources.valueOf(resources);
 		int count1 = Integer.valueOf(count);
+		
 		if ("SaveClientContactInformation".equalsIgnoreCase(res.name().trim())) {
 			for (int i = 0; i < count1; i++) {
 				resp = ClientStakeholder.method2().when().post(res.getResources());
+				if(resp.jsonPath().getBoolean("wasSuccessful") == false) {
+					i--;
+				}
 			}
-		}
+		}	
 	}
 
 	@Then("check total count of contact inside {string} array object should {string}")
 	public void check_total_count_of_contact_inside_array_object_should(String key, String count1) {
 		// SaveClientContactInformation
-
+		resp.then().log().all();
 		String body = resp.asString();
 		JsonPath json = new JsonPath(body);
-		clientcontactid = json.getInt("data.clientContactListSP[0].clientcontactinformationid");
 		List<Map<String, Object>> list1 = json.getList("data." + key);
+		Assert.assertNotNull(list1, "Key not found: " + key);
+		if (!list1.isEmpty()) {
+			clientcontactid = json.get("data.clientContactListSP[0].clientcontactinformationid");
+			clientcontactid2 = json.get("data.clientContactListSP[1].clientcontactinformationid");
+			Assert.assertNotNull(clientcontactid, "First element missing clientcontactinformationid");
+		}
+		Assert.assertNotNull(list1, "Key not found: " + key);
 		int count = list1.size();
 		int expectcout = Integer.valueOf(count1);
 		Assert.assertEquals(count, expectcout);
@@ -145,11 +168,12 @@ public class ClientStakeholderStepDefination {
 		// GetAllClientList
 		else if ("GetAllClientList".equalsIgnoreCase(res.name().trim())) {
 			resp = req.when().get(res.getResources());
-		}
-		else if ("GetClientContactWithAddressList".equalsIgnoreCase(res.name().trim())) {
+		} else if ("GetClientContactWithAddressList".equalsIgnoreCase(res.name().trim())) {
+			resp = req.when().get(res.getResources());
+		} else if ("GetKeyStakeHolderInfo".equalsIgnoreCase(res.name().trim())) {
 			resp = req.when().get(res.getResources());
 		}
-		else if("GetKeyStakeHolderInfo".equalsIgnoreCase(res.name().trim())) {
+		else if ("GetClientStakeHolderDetails".equalsIgnoreCase(res.name().trim())){
 			resp = req.when().get(res.getResources());
 		}
 	}
@@ -192,23 +216,45 @@ public class ClientStakeholderStepDefination {
 	@Then("check count contacts and address list is same in response body")
 	public void check_count_contacts_and_address_list_is_same_in_response_body() {
 		// GetClientContactWithAddressList
-		
-       JsonPath json = new JsonPath(resp.asString());
-       List<Map<String, Object>> contactlist = json.getList("data.clientContactList");
-       int totalcontact = contactlist.size();
-       List<Map<String, Object>> addresslist = json.getList("data.clientAddressListDtoList");
-       int totaladdress = addresslist.size();
-       System.out.println("totalcontactlist agianst newly created client :" +totalcontact + "\n" + "total address list agianst newly created client : " +totaladdress);
-       
-	}
 
+		JsonPath json = new JsonPath(resp.asString());
+		List<Map<String, Object>> contactlist = json.getList("data.clientContactList");
+		int totalcontact = contactlist.size();
+		List<Map<String, Object>> addresslist = json.getList("data.clientAddressListDtoList");
+		int totaladdress = addresslist.size();
+		System.out.println("totalcontactlist agianst newly created client :" + totalcontact + "\n"
+				+ "total address list agianst newly created client : " + totaladdress);
+
+	}
+	@Then("check message correctly display and take data keyvalue")
+	public void check_message_correctly_display_and_take_data_keyvalue() {
+       String resbody = resp.asString();
+       String expectedmessage = "SaveStakeHoldersClientDetails API are successfully loaded";
+       JsonPath json = new JsonPath(resbody);
+       String actualmessage = json.getString("message");
+       Assert.assertEquals(actualmessage, expectedmessage);
+       System.out.println("output message of api :" +actualmessage);
+       savestakeholderid = json.getInt("data");
+	}
 	@Then("check contact details are correct for the provided contact ID")
 	public void check_contact_details_are_correct_for_the_provided_contact_ID() {
 		// GetKeyStakeHolderInfo
-	}
+		String body = resp.asString();
+		JsonPath json = new JsonPath(body);
+		int actualclientid  = json.getInt("data.clientstakeholderDetailsDto[0].clientinformationid");
+		int actualclientaddressid  = json.getInt("data.clientstakeholderDetailsDto[0].clientaddressinformationid");
+		int actualclientsignauthoid  = json.getInt("data.clientstakeholderDetailsDto[0].clientsigningauthorityid");
+		int actualcontractid  = json.getInt("data.clientstakeholderDetailsDto[0].contractid");
+		int actualsaveclientid  = json.getInt("data.clientstakeholderDetailsDto[0].contractstakeholdersclientid");
+		int actualcontactid  = json.getInt("data.clientContactList[0].clientcontactinformationid");
+		System.out.println("client id actual : "+ actualclientid  + "equals id : "+ clientid);
+		Assert.assertEquals(actualclientid, clientid);
+		System.out.println("client id actual : "+ actualclientaddressid  + "equals id : "+ clientaddressid);
 
-	@Then("check message correctly display and take data keyvalue")
-	public void check_message_correctly_display_and_take_data_keyvalue() {
-
+		Assert.assertEquals(actualclientaddressid, clientaddressid);
+		Assert.assertEquals(actualclientsignauthoid, clientcontactid2);
+		Assert.assertEquals(actualcontractid, clientcontactid);
+		Assert.assertEquals(actualsaveclientid, savestakeholderid);
+		Assert.assertEquals(actualcontactid, ContractHeaderStepDefination.contractId);
 	}
 }

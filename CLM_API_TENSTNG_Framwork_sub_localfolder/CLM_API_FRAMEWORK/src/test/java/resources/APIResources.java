@@ -16,8 +16,8 @@ public enum APIResources {
 	DeleteClientContactInformation("/api/Client/DeleteClientContactInformation"),
 	GetAllClientList("/api/StakeHolders/GetAllClientList"),
 	GetClientContactWithAddressList("/api/StakeHolders/GetClientContactWithAddressList"),
-	GetKeyStakeHolderInfo("/api/StakeHolders/GetKeyStakeHolderInfo"),
-	SaveStakeHoldersClientDetails("/api/StakeHolders/SaveStakeHoldersClientDetails");
+	SaveStakeHoldersClientDetails("/api/StakeHolders/SaveStakeHoldersClientDetails"),
+	GetClientStakeHolderDetails("/api/StakeHolders/GetClientStakeHolderDetails");
 	
 	
 	private String resources;
