@@ -17,8 +17,15 @@ public enum APIResources {
 	GetAllClientList("/api/StakeHolders/GetAllClientList"),
 	GetClientContactWithAddressList("/api/StakeHolders/GetClientContactWithAddressList"),
 	SaveStakeHoldersClientDetails("/api/StakeHolders/SaveStakeHoldersClientDetails"),
-	GetClientStakeHolderDetails("/api/StakeHolders/GetClientStakeHolderDetails");
-	
+	GetClientStakeHolderDetails("/api/StakeHolders/GetClientStakeHolderDetails"),
+	GetStakeHolderServiceProvideList("/api/StakeHolders/GetStakeHolderServiceProvideList"),
+	GetStakeHolderServiceProvAddress("/api/StakeHolders/GetStakeHolderServiceProvAddress"),
+	GetStakeHolderSigningAuthorityList("/api/StakeHolders/GetStakeHolderSigningAuthorityList"),
+	SaveServiceProvContactInfo("/api/Client/SaveServiceProvContactInfo"),
+	GetStkeholderContactList("/api/StakeHolders/GetStkeholderContactList"),
+	GetStakeHolderContactInfromation("/api/StakeHolders/GetStakeHolderContactInfromation"),
+	SaveStakeholderServiceProvider("/api/StakeHolders/SaveStakeholderServiceProvider"),
+	GetStakeholderServiceProviderDeatils("/api/StakeHolders/GetStakeholderServiceProviderDeatils");
 	
 	private String resources;
 	
