@@ -55,7 +55,7 @@ public class ServiceProviderStakeholder {
 		obj2.setCompanyid(ServiceProviderStepDefination.companyid);
 		obj2.setCompanyaddressid(ServiceProviderStepDefination.compaddressid);
 		obj2.setSigningauthorityid(ServiceProviderStepDefination.newcontactid);
-		obj2.setCompanycontactid(ServiceProviderStepDefination.contactid);
+		obj2.setCompanycontactid(String.valueOf(ServiceProviderStepDefination.contactid));
 		obj2.setTriggerid(5);
 		obj2.setContractid(ContractHeaderStepDefination.contractId);
 		return obj2;

@@ -5,7 +5,7 @@ public class SaveStakeholderServiceProvider_POJO {
 	private int companyid;
 	private int companyaddressid;
 	private int signingauthorityid;
-	private int companycontactid;
+	private String companycontactid;
 	private int triggerid;
 	private int contractid;
 	private int contractstakeholdersserviceproviderid;
@@ -42,11 +42,11 @@ public class SaveStakeholderServiceProvider_POJO {
 		this.signingauthorityid = signingauthorityid;
 	}
 
-	public int getCompanycontactid() {
+	public String getCompanycontactid() {
 		return companycontactid;
 	}
 
-	public void setCompanycontactid(int companycontactid) {
+	public void setCompanycontactid(String companycontactid) {
 		this.companycontactid = companycontactid;
 	}
 

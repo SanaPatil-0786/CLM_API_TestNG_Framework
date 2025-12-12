@@ -5,7 +5,7 @@ import io.cucumber.testng.CucumberOptions;
 
 @CucumberOptions
         (
-        features = "src/test/java/features/04_ServiceProviderAPI.feature", // Path to your .feature files
+        features = "src/test/java/features", // Path to your .feature files
 		glue = {"stepDefinationCLMAPI"}, // Package containing step definitions
 
 		plugin = { 
@@ -14,7 +14,7 @@ import io.cucumber.testng.CucumberOptions;
 				"json:target/cucumber.json"
 				},
         tags ="@run",
-        dryRun= true
+        dryRun= false
 )
 public class TestRunnerTestNG extends AbstractTestNGCucumberTests {
 

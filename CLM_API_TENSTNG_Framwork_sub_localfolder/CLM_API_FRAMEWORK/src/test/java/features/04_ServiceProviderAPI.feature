@@ -49,13 +49,13 @@ When sent post request to "SaveStakeholderServiceProvider" API
 Then check response statuscode is "200"
 And check "message" and "data" key value of "SaveStakeholderServiceProvider" API
 
-#ongoing 
+
 @run
 Scenario: Verify get details of saved service provider api  are same 
 Given prepare request payload to "GetStakeholderServiceProviderDeatils" API
 When sent get request to "GetStakeholderServiceProviderDeatils" API
 Then check response statuscode is "200"
-And check response body contain same saved service provider details
+
 
 
 

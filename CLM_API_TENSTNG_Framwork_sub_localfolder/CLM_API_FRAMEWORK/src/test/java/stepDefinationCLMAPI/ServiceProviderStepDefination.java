@@ -49,6 +49,9 @@ public class ServiceProviderStepDefination {
 		else if ("SaveStakeholderServiceProvider".equalsIgnoreCase(apres.name().trim())) {
 			req = APIUtilsCommon.postHeaderRequest().body(ServiceProviderStakeholder.saveServiceProviderBody());
 		}
+		else if("GetStakeholderServiceProviderDeatils".equalsIgnoreCase(apres.name().trim())){
+			req = APIUtilsCommon.getPayloadbody().log().all().queryParam("contractId", ContractHeaderStepDefination.contractId);
+		}
 	}
 
 	@When("sent get request to {string} API")
@@ -65,12 +68,15 @@ public class ServiceProviderStepDefination {
 		} else if ("GetStakeHolderContactInfromation".equalsIgnoreCase(apres.name().trim())) {
 			res = req.when().get(apres.getResources());
 		}
+		else if("GetStakeholderServiceProviderDeatils".equalsIgnoreCase(apres.name().trim())) {
+			res = req.when().get(apres.getResources());
+		}
 	}
 
 	@Then("check response statuscode is {string}")
 	public void check_response_statuscode_is(String code) {
 		int statuscode = Integer.valueOf(code);
-		res.then().assertThat().statusCode(statuscode);
+		res.then().log().all().statusCode(statuscode);
 	}
 
 	@Then("check total count of service provider in system")
@@ -102,8 +108,7 @@ public class ServiceProviderStepDefination {
 		int totaladdress = json.getInt("data." + arrayKey + ".size()");
 		System.out.println("total count of address inside selected compayid :" + totaladdress);
 		compaddressid = json.getInt("data.serviceProvAddressListDto[0].companyaddressid");
-		System.out
-				.println("company first address name : " + json.getString("data.serviceProvAddressListDto[0].address"));
+		System.out.println("company first address name : " + json.getString("data.serviceProvAddressListDto[0].address"));
 
 	}
 
@@ -112,9 +117,9 @@ public class ServiceProviderStepDefination {
 			String key) {
 		String body = res.asString();
 		JsonPath json = new JsonPath(body);
-		int totalcontacts = json.getInt("data." + arrayobj + "size()");
+		int totalcontacts = json.getInt("data." + arrayobj + ".size()");
 		System.out.println("total count of contact is : " + totalcontacts);
-		contactid = json.getInt("data." + arrayobj + key);
+		contactid = json.getInt("data." + arrayobj+"[0]." + key);
 		System.out.println("company contact first id :" + contactid);
 	}
 
@@ -138,8 +143,8 @@ public class ServiceProviderStepDefination {
 			JsonPath json = new JsonPath(body);
 			String message = json.getString(key1);
 			newcontactid = json.getInt(key2);
-			System.out.println("newly created contact :" + newcontactid + "\n"
-					+ "SaveServiceProvContactInfo api response message :" + message);
+			System.out.println("newly created contact : " + newcontactid + "\n"
+					+ "   SaveServiceProvContactInfo api response message :   " + message);
 		}
 		else if("SaveStakeholderServiceProvider".equalsIgnoreCase(apres.name().trim())) {
 			String body = res.asString();
@@ -172,9 +177,4 @@ public class ServiceProviderStepDefination {
 		ServiceProviderStakeholder.assertionmethod();
 
 	}
-
-	@Then("check response body contain same saved service provider details")
-	public void check_response_body_contain_same_saved_service_provider_details() {
-	}
-
 }
