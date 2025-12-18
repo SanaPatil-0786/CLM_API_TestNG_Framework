@@ -13,7 +13,7 @@ import io.cucumber.testng.CucumberOptions;
 				"html:target/cucumber-reports.html",
 				"json:target/cucumber.json"
 				},
-        tags ="@run",
+       // tags ="@run",
         dryRun= false
 )
 public class TestRunnerTestNG extends AbstractTestNGCucumberTests {

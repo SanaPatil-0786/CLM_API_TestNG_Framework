@@ -69,7 +69,7 @@ public class ClientStakeholderStepDefination {
 
 	@Then("the response status code should {string}")
 	public void the_response_status_code_should(String statuscode) {
-		resp.then().log().all();
+		//resp.then().log().all();
 		int code = resp.getStatusCode();
 		int expectedstatus = Integer.valueOf(statuscode);
 		Assert.assertEquals(code, expectedstatus);
@@ -136,7 +136,7 @@ public class ClientStakeholderStepDefination {
 	@Then("check total count of contact inside {string} array object should {string}")
 	public void check_total_count_of_contact_inside_array_object_should(String key, String count1) {
 		// SaveClientContactInformation
-		resp.then().log().all();
+		//resp.then().log().all();
 		String body = resp.asString();
 		JsonPath json = new JsonPath(body);
 		List<Map<String, Object>> list1 = json.getList("data." + key);
@@ -181,7 +181,8 @@ public class ClientStakeholderStepDefination {
 	@Then("check out count after delete address")
 	public void check_out_count_after_delete_address() {
 		// DeleteClientAddress
-		String body = resp.then().log().all().extract().response().asString();
+		//.log().all()
+		String body = resp.then().extract().response().asString();
 		JsonPath json = new JsonPath(body);
 		int count = json.getInt("data.clientAddressListDtoList.size()");
 		System.out.println("after delete totak count of address : " + count);
@@ -190,7 +191,8 @@ public class ClientStakeholderStepDefination {
 	@Then("check out count after delete contact")
 	public void check_out_count_after_delete_contact() {
 		// DeleteClientContactInformation
-		String body = resp.then().log().all().extract().response().asString();
+		//.log().all()
+		String body = resp.then().extract().response().asString();
 		JsonPath json = new JsonPath(body);
 		int count = json.getInt("data.clientContactListSP.size()");
 		System.out.println("after delete totak count of address : " + count);
